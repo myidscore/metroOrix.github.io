@@ -1,17 +1,58 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branch Selector with Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .branch-selector label {
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .branch-details {
+            margin-top: 20px;
+        }
+
+        .branch-details h2,
+        .branch-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
 <div style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); max-width: 1537px; margin: auto;">
-        <img src="contactus.png"  alt="Company Logo" style="width: 1200px; height: auto;" />
+        <img src="contactus.png"  alt="Company Logo" style="width: 454px; height: auto;" />
     <h2 style="font-size: 2em; color: #c70039; text-align: center; font-weight: bold; margin-bottom: 20px;">Contact us</h2>
 
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+    <div >
         <!-- Contact Info Section -->
-        <div style="flex: 1; padding: 20px; background-color: #f5f5f5; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); margin-right: 10px;">
-            <p><strong>PEFINDO Credit Bureau (IdScore) office address </strong><br>
-                Indonesia Stock Exchange Building Tower I Floor 1<br>
-                Jl. Jend. Sudirman Kav 52-53 Jakarta 12190
-            </p>
-            <p>📧 myidscore.helpdesk@idscore.co.id<br>📞 (62-21) 515 4501 </p>
-            <p><strong>Working Hours</strong><br> ⏱︎ Monday - Friday (09:00 - 15:00)</p>
+ <div class="branch-selector">
+            <label for="branch">Select Branch:</label>
+            <select id="branch"></select>
         </div>
+
+        <!-- Branch Details -->
+        <div class="branch-details">
+            <h2 id="branchName"></h2>
+            <p id="branchContact"></p>
+            <p id="branchEmail"></p>
+        </div>
+       
 
         <!-- Contact Form Section -->
         <div style="flex: 1; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
@@ -79,4 +120,70 @@ function closePopup() {
         document.getElementById("contactForm").submit(); // Submit the form
     }, 100); // Small delay to ensure the popup closes smoothly
 }
+
+
+ const branches = [
+            {
+                name: "Head Office",
+                fullName: "Head Office - ORIX METRO Leasing and Finance Corporation (Makati)",
+                contact: "Tel: (02) 812-4022",
+                email: "info@orix.com.ph",
+            },
+            {
+                name: "Aparri",
+                fullName: "APARRI",
+                contact: "Tel: (078) 888-1111",
+                email: "bbgarcia@orix.com.ph, ctang@orix.com.ph",
+            },
+            {
+                name: "Bacolod",
+                fullName: "BACOLOD",
+                contact: "Tel: (034) 432-1234",
+                email: "bacolod@orix.com.ph",
+            },
+            {
+                name: "Baguio",
+                fullName: "BAGUIO",
+                contact: "Tel: (074) 444-5678",
+                email: "baguio@orix.com.ph",
+            },
+        ];
+
+        const branchSelector = document.getElementById("branch");
+        const branchName = document.getElementById("branchName");
+        const branchContact = document.getElementById("branchContact");
+        const branchEmail = document.getElementById("branchEmail");
+
+        // Populate dropdown dynamically
+        function populateBranches() {
+            branches.forEach((branch, index) => {
+                const option = document.createElement("option");
+                option.value = index;
+                option.textContent = branch.fullName;
+                branchSelector.appendChild(option);
+            });
+        }
+
+        // Update branch details
+        function updateBranchDetails(branch) {
+            branchName.textContent = branch.fullName;
+            branchContact.textContent = branch.contact;
+            branchEmail.textContent = `Email: ${branch.email}`;
+        }
+
+        // Initialize dropdown and details
+        function initialize() {
+            populateBranches();
+            // Set default branch details
+            updateBranchDetails(branches[0]);
+        }
+
+        // Add event listener for dropdown
+        branchSelector.addEventListener("change", (event) => {
+            const selectedBranch = branches[event.target.value];
+            updateBranchDetails(selectedBranch);
+        });
+
+        // Call initialize on page load
+        initialize();
 </script>
