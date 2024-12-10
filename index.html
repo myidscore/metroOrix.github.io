@@ -1,54 +1,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Branch Selector with Details</title>
+    <title>Branch Selector with Centered Details</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
         }
 
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 20px;
+            width: 800px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
         }
 
         .branch-selector {
-            flex: 1;
-            max-width: 300px;
+            margin-bottom: 20px;
         }
 
         .branch-selector label {
             font-weight: bold;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 18px;
         }
 
         select {
             width: 100%;
             padding: 10px;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .branch-details {
-            flex: 2;
-            border-left: 2px solid #ddd;
-            padding-left: 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
         .branch-details h2 {
-            margin: 0 0 10px 0;
+            margin: 20px 0 10px 0;
             color: #333;
         }
 
         .branch-details p {
             margin: 5px 0;
             line-height: 1.5;
+            color: #555;
+        }
+
+        .branch-details {
+            text-align: left;
         }
     </style>
 </head>
@@ -74,7 +79,6 @@
             <p id="branchAddress"></p>
         </div>
     </div>
-   
 
     <!-- Contact Form Section -->
     <div style="flex: 1; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
