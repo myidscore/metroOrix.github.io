@@ -1,189 +1,189 @@
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Branch Selector with Details</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Branch Selector with Details</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
 
-        .branch-selector label {
-            font-weight: bold;
-        }
+    .branch-selector label {
+        font-weight: bold;
+    }
 
-        select {
-            width: 100%;
-            padding: 10px;
-            font-size: 14px;
-            margin-top: 5px;
-        }
+    select {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        margin-top: 5px;
+    }
 
-        .branch-details {
-            margin-top: 20px;
-        }
+    .branch-details {
+        margin-top: 20px;
+    }
 
-        .branch-details h2,
-        .branch-details p {
-            margin: 5px 0;
-        }
-    </style>
+    .branch-details h2,
+    .branch-details p {
+        margin: 5px 0;
+    }
+</style>
 </head>
 <div style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); max-width: 1537px; margin: auto;">
-        <img src="contactus.png"  alt="Company Logo" style="width: 454px; height: auto;" />
-    <h2 style="font-size: 2em; color: #c70039; text-align: center; font-weight: bold; margin-bottom: 20px;">Contact us</h2>
+    <img src="contactus.png"  alt="Company Logo" style="width: 454px; height: auto;" />
+<h2 style="font-size: 2em; color: #c70039; text-align: center; font-weight: bold; margin-bottom: 20px;">Contact us</h2>
 
-    <div >
-        <!-- Contact Info Section -->
- <div class="branch-selector">
-            <label for="branch">Select Branch:</label>
-            <select id="branch"></select>
-        </div>
-
-        <!-- Branch Details -->
-        <div class="branch-details">
-            <h2 id="branchName"></h2>
-            <p id="branchContact"></p>
-            <p id="branchEmail"></p>
-        </div>
-       
-
-        <!-- Contact Form Section -->
-        <div style="flex: 1; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
-            <form id="contactForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DHu000008VGtQ" method="POST" onsubmit="showPopup(event)">
-                <input type="hidden" name="oid" value="00DHu000008VGtQ">
-                <input type="hidden" name="retURL" value="https://myidscore.id/">
-
-                <label for="first_name" style="display: block; margin-top: 10px; font-weight: bold; font-size: 1em;">First Name</label>
-                <input id="first_name" required name="first_name" type="text" maxlength="40" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em;"><br>
-
-                <label for="last_name" style="display: block; margin-top: 10px; font-weight: bold; font-size: 1em;">Last Name</label>
-                <input id="last_name" name="last_name" required type="text" maxlength="80" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em;"><br>
-
-                <label for="email" style="display: block; margin-top: 10px; font-weight: bold; font-size: 1em;">Email</label>
-                <input id="email" name="email" type="email" maxlength="80" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em;"><br>
-
-                <label for="phone" style="display: block; margin-top: 10px; font-weight: bold; font-size: 1em;">Phone</label>
-                <input id="phone" maxlength="40" name="phone" size="20" type="text" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em;" /><br>
-               <label for="company" style="display: block; margin-top: 10px; font-weight: bold; font-size: 1em;">Company</label>
-            <input  id="company" maxlength="40" name="company" size="20" type="text" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em;" /><br>
-                
-                <label for="Requirements__c" style="display: block; margin-top: 10px; font-weight: bold; font-size: 1em;">Requirements</label>
-                <select id="Requirements__c" name="Requirements__c" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em;">
-                    <option value="">-- Select Category --</option>
-                    <option value="Account">Account</option>
-                    <option value="Payment">Payment</option>
-                    <option value="Verification">Verification</option>
-                    <option value="Report">Report</option>
-                    <option value="Close account">Close account</option>
-                </select><br>
-
-                <label for="IdScore_Message__c" style="display: block; margin-top: 10px; font-weight: bold; font-size: 1em;">IdScore Message</label>
-                <textarea id="IdScore_Message__c" name="IdScore_Message__c" rows="4" maxlength="500" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em; resize: none;"></textarea><br>
-
-                <input type="submit" value="Send Message" style="background-color: #c70039; color: #ffffff; padding: 12px 24px; border: none; border-radius: 5px; font-size: 1.1em; cursor: pointer; width: 100%; text-align: center; font-weight: bold;">
-            </form>
-        </div>
+<div >
+    <!-- Contact Info Section -->
+<div class="branch-selector">
+        <label for="branch">Select Branch:</label>
+        <select id="branch"></select>
     </div>
+
+    <!-- Branch Details -->
+    <div class="branch-details">
+        <h2 id="branchName"></h2>
+        <p id="branchContact"></p>
+        <p id="branchEmail"></p>
+    </div>
+   
+
+    <!-- Contact Form Section -->
+    <div style="flex: 1; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+        <form id="contactForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DHu000008VGtQ" method="POST" onsubmit="showPopup(event)">
+            <input type="hidden" name="oid" value="00DHu000008VGtQ">
+            <input type="hidden" name="retURL" value="https://myidscore.id/">
+
+            <label for="first_name" style="display: block; margin-top: 10px; font-weight: bold; font-size: 1em;">First Name</label>
+            <input id="first_name" required name="first_name" type="text" maxlength="40" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em;"><br>
+
+            <label for="last_name" style="display: block; margin-top: 10px; font-weight: bold; font-size: 1em;">Last Name</label>
+            <input id="last_name" name="last_name" required type="text" maxlength="80" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em;"><br>
+
+            <label for="email" style="display: block; margin-top: 10px; font-weight: bold; font-size: 1em;">Email</label>
+            <input id="email" name="email" type="email" maxlength="80" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em;"><br>
+
+            <label for="phone" style="display: block; margin-top: 10px; font-weight: bold; font-size: 1em;">Phone</label>
+            <input id="phone" maxlength="40" name="phone" size="20" type="text" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em;" /><br>
+           <label for="company" style="display: block; margin-top: 10px; font-weight: bold; font-size: 1em;">Company</label>
+        <input  id="company" maxlength="40" name="company" size="20" type="text" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em;" /><br>
+            
+            <label for="Requirements__c" style="display: block; margin-top: 10px; font-weight: bold; font-size: 1em;">Requirements</label>
+            <select id="Requirements__c" name="Requirements__c" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em;">
+                <option value="">-- Select Category --</option>
+                <option value="Account">Account</option>
+                <option value="Payment">Payment</option>
+                <option value="Verification">Verification</option>
+                <option value="Report">Report</option>
+                <option value="Close account">Close account</option>
+            </select><br>
+
+            <label for="IdScore_Message__c" style="display: block; margin-top: 10px; font-weight: bold; font-size: 1em;">IdScore Message</label>
+            <textarea id="IdScore_Message__c" name="IdScore_Message__c" rows="4" maxlength="500" style="width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em; resize: none;"></textarea><br>
+
+            <input type="submit" value="Send Message" style="background-color: #c70039; color: #ffffff; padding: 12px 24px; border: none; border-radius: 5px; font-size: 1.1em; cursor: pointer; width: 100%; text-align: center; font-weight: bold;">
+        </form>
+    </div>
+</div>
 </div>
 
 <!-- Popup message -->
 <div id="popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); align-items: center; justify-content: center;">
-    <div style="background-color: #ffffff; padding: 20px; border-radius: 10px; max-width: 500px; text-align: center;">
-        <p style="font-size: 1.2em; font-weight: bold;">Your Lead has been registered in our system, our representative will get back to you shortly.</p>
-        <button onclick="closePopup()" style="background-color: #c70039; color: #ffffff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 1em; cursor: pointer;">Okay</button>
-    </div>
+<div style="background-color: #ffffff; padding: 20px; border-radius: 10px; max-width: 500px; text-align: center;">
+    <p style="font-size: 1.2em; font-weight: bold;">Your Lead has been registered in our system, our representative will get back to you shortly.</p>
+    <button onclick="closePopup()" style="background-color: #c70039; color: #ffffff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 1em; cursor: pointer;">Okay</button>
+</div>
 </div>
 
 <script>
 let isPopupShown = false; // Track if the popup has been shown
 
 function showPopup(event) {
-    if (!isPopupShown) {
-        event.preventDefault(); // Prevent submission on the first time
-        document.getElementById("popup").style.display = "flex"; // Show the popup
-        isPopupShown = true; // Update the flag so the popup won't show again
-    }
+if (!isPopupShown) {
+    event.preventDefault(); // Prevent submission on the first time
+    document.getElementById("popup").style.display = "flex"; // Show the popup
+    isPopupShown = true; // Update the flag so the popup won't show again
+}
 }
 
 function closePopup() {
-    document.getElementById("popup").style.display = "none"; // Hide the popup
-    
-    // Submit the form after closing the popup and redirect after submission
-    setTimeout(() => {
-        document.getElementById("contactForm").submit(); // Submit the form
-    }, 100); // Small delay to ensure the popup closes smoothly
+document.getElementById("popup").style.display = "none"; // Hide the popup
+
+// Submit the form after closing the popup and redirect after submission
+setTimeout(() => {
+    document.getElementById("contactForm").submit(); // Submit the form
+}, 100); // Small delay to ensure the popup closes smoothly
 }
 
 
- const branches = [
-            {
-                name: "Head Office",
-                fullName: "Head Office - ORIX METRO Leasing and Finance Corporation (Makati)",
-                contact: "Tel: (02) 812-4022",
-                email: "info@orix.com.ph",
-            },
-            {
-                name: "Aparri",
-                fullName: "APARRI",
-                contact: "Tel: (078) 888-1111",
-                email: "bbgarcia@orix.com.ph, ctang@orix.com.ph",
-            },
-            {
-                name: "Bacolod",
-                fullName: "BACOLOD",
-                contact: "Tel: (034) 432-1234",
-                email: "bacolod@orix.com.ph",
-            },
-            {
-                name: "Baguio",
-                fullName: "BAGUIO",
-                contact: "Tel: (074) 444-5678",
-                email: "baguio@orix.com.ph",
-            },
-        ];
+const branches = [
+        {
+            name: "Head Office",
+            fullName: "Head Office - ORIX METRO Leasing and Finance Corporation (Makati)",
+            contact: "Tel: (02) 812-4022",
+            email: "info@orix.com.ph",
+        },
+        {
+            name: "Aparri",
+            fullName: "APARRI",
+            contact: "Tel: (078) 888-1111",
+            email: "bbgarcia@orix.com.ph, ctang@orix.com.ph",
+        },
+        {
+            name: "Bacolod",
+            fullName: "BACOLOD",
+            contact: "Tel: (034) 432-1234",
+            email: "bacolod@orix.com.ph",
+        },
+        {
+            name: "Baguio",
+            fullName: "BAGUIO",
+            contact: "Tel: (074) 444-5678",
+            email: "baguio@orix.com.ph",
+        },
+    ];
 
-        const branchSelector = document.getElementById("branch");
-        const branchName = document.getElementById("branchName");
-        const branchContact = document.getElementById("branchContact");
-        const branchEmail = document.getElementById("branchEmail");
+    const branchSelector = document.getElementById("branch");
+    const branchName = document.getElementById("branchName");
+    const branchContact = document.getElementById("branchContact");
+    const branchEmail = document.getElementById("branchEmail");
 
-        // Populate dropdown dynamically
-        function populateBranches() {
-            branches.forEach((branch, index) => {
-                const option = document.createElement("option");
-                option.value = index;
-                option.textContent = branch.fullName;
-                branchSelector.appendChild(option);
-            });
-        }
-
-        // Update branch details
-        function updateBranchDetails(branch) {
-            branchName.textContent = branch.fullName;
-            branchContact.textContent = branch.contact;
-            branchEmail.textContent = `Email: ${branch.email}`;
-        }
-
-        // Initialize dropdown and details
-        function initialize() {
-            populateBranches();
-            // Set default branch details
-            updateBranchDetails(branches[0]);
-        }
-
-        // Add event listener for dropdown
-        branchSelector.addEventListener("change", (event) => {
-            const selectedBranch = branches[event.target.value];
-            updateBranchDetails(selectedBranch);
+    // Populate dropdown dynamically
+    function populateBranches() {
+        branches.forEach((branch, index) => {
+            const option = document.createElement("option");
+            option.value = index;
+            option.textContent = branch.fullName;
+            branchSelector.appendChild(option);
         });
+    }
 
-        // Call initialize on page load
-        initialize();
+    // Update branch details
+    function updateBranchDetails(branch) {
+        branchName.textContent = branch.fullName;
+        branchContact.textContent = branch.contact;
+        branchEmail.textContent = `Email: ${branch.email}`;
+    }
+
+    // Initialize dropdown and details
+    function initialize() {
+        populateBranches();
+        // Set default branch details
+        updateBranchDetails(branches[0]);
+    }
+
+    // Add event listener for dropdown
+    branchSelector.addEventListener("change", (event) => {
+        const selectedBranch = branches[event.target.value];
+        updateBranchDetails(selectedBranch);
+    });
+
+    // Call initialize on page load
+    initialize();
 </script>
