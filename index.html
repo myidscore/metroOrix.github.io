@@ -1,56 +1,78 @@
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Branch Selector with Details</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branch Selector with Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
 
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-    }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 20px;
+        }
 
-    .branch-selector label {
-        font-weight: bold;
-    }
+        .branch-selector {
+            flex: 1;
+            max-width: 300px;
+        }
 
-    select {
-        width: 100%;
-        padding: 10px;
-        font-size: 14px;
-        margin-top: 5px;
-    }
+        .branch-selector label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
 
-    .branch-details {
-        margin-top: 20px;
-    }
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
 
-    .branch-details h2,
-    .branch-details p {
-        margin: 5px 0;
-    }
-</style>
+        .branch-details {
+            flex: 2;
+            border-left: 2px solid #ddd;
+            padding-left: 20px;
+        }
+
+        .branch-details h2 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .branch-details p {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <div style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); max-width: 1537px; margin: auto;">
     <img src="contactus.png"  alt="Company Logo" style="width: 454px; height: auto;" />
-<h2 style="font-size: 2em; color: #c70039; text-align: center; font-weight: bold; margin-bottom: 20px;">Contact us</h2>
+        <h2 style="font-size: 2em; color: #c70039; text-align: center; font-weight: bold; margin-bottom: 20px;">Contact us</h2>
 
 <div >
     <!-- Contact Info Section -->
-<div class="branch-selector">
-        <label for="branch">Select Branch:</label>
-        <select id="branch"></select>
-    </div>
+ <div class="container">
+        <!-- Branch Selection -->
+        <div class="branch-selector">
+            <label for="branch">Select Branch:</label>
+            <select id="branch"></select>
+        </div>
 
-    <!-- Branch Details -->
-    <div class="branch-details">
-        <h2 id="branchName"></h2>
-        <p id="branchContact"></p>
-        <p id="branchEmail"></p>
+        <!-- Branch Details -->
+        <div class="branch-details" id="branchDetails">
+            <h2 id="branchName"></h2>
+            <p id="branchContact"></p>
+            <p id="branchFax"></p>
+            <p id="branchEmail"></p>
+            <p id="branchAddress"></p>
+        </div>
     </div>
    
 
@@ -123,67 +145,79 @@ setTimeout(() => {
 
 
 const branches = [
-        {
-            name: "Head Office",
-            fullName: "Head Office - ORIX METRO Leasing and Finance Corporation (Makati)",
-            contact: "Tel: (02) 812-4022",
-            email: "info@orix.com.ph",
-        },
-        {
-            name: "Aparri",
-            fullName: "APARRI",
-            contact: "Tel: (078) 888-1111",
-            email: "bbgarcia@orix.com.ph, ctang@orix.com.ph",
-        },
-        {
-            name: "Bacolod",
-            fullName: "BACOLOD",
-            contact: "Tel: (034) 432-1234",
-            email: "bacolod@orix.com.ph",
-        },
-        {
-            name: "Baguio",
-            fullName: "BAGUIO",
-            contact: "Tel: (074) 444-5678",
-            email: "baguio@orix.com.ph",
-        },
-    ];
+            {
+                name: "Head Office",
+                fullName: "* Head Office - ORIX METRO Leasing and Finance Corporation (Makati)",
+                contact: "Tel: (02) 8858-8888, (02) 8982-9400",
+                fax: "Fax: (02) 8858-8824",
+                email: "mqsabang@orix.com.ph, ctang@orix.com.ph, mdluminoque@orix.com.ph, lsromeo@orix.com.ph, mmmabolo@orix.com.ph",
+                address: "21/F GT Tower International, Ayala Avenue corner H.V. Dela Costa St., Makati City",
+            },
+            {
+                name: "Aparri",
+                fullName: "APARRI",
+                contact: "Tel: (078) 888-1111",
+                fax: "Fax: (078) 888-2222",
+                email: "bbgarcia@orix.com.ph, ctang@orix.com.ph",
+                address: "1st Floor, Aparri Business Center, Aparri, Cagayan",
+            },
+            {
+                name: "Bacolod",
+                fullName: "BACOLOD",
+                contact: "Tel: (034) 432-1234",
+                fax: "Fax: (034) 432-5678",
+                email: "bacolod@orix.com.ph",
+                address: "2nd Floor, Bacolod City Center, Bacolod, Negros Occidental",
+            },
+            {
+                name: "Baguio",
+                fullName: "BAGUIO",
+                contact: "Tel: (074) 444-5678",
+                fax: "Fax: (074) 444-4321",
+                email: "baguio@orix.com.ph",
+                address: "3rd Floor, Baguio City Center, Baguio City",
+            },
+        ];
 
-    const branchSelector = document.getElementById("branch");
-    const branchName = document.getElementById("branchName");
-    const branchContact = document.getElementById("branchContact");
-    const branchEmail = document.getElementById("branchEmail");
+        const branchSelector = document.getElementById("branch");
+        const branchName = document.getElementById("branchName");
+        const branchContact = document.getElementById("branchContact");
+        const branchFax = document.getElementById("branchFax");
+        const branchEmail = document.getElementById("branchEmail");
+        const branchAddress = document.getElementById("branchAddress");
 
-    // Populate dropdown dynamically
-    function populateBranches() {
-        branches.forEach((branch, index) => {
-            const option = document.createElement("option");
-            option.value = index;
-            option.textContent = branch.fullName;
-            branchSelector.appendChild(option);
+        // Populate dropdown dynamically
+        function populateBranches() {
+            branches.forEach((branch, index) => {
+                const option = document.createElement("option");
+                option.value = index;
+                option.textContent = branch.fullName;
+                branchSelector.appendChild(option);
+            });
+        }
+
+        // Update branch details
+        function updateBranchDetails(branch) {
+            branchName.textContent = branch.fullName;
+            branchContact.textContent = branch.contact;
+            branchFax.textContent = branch.fax;
+            branchEmail.textContent = `Email: ${branch.email}`;
+            branchAddress.textContent = `Find us at: ${branch.address}`;
+        }
+
+        // Initialize dropdown and details
+        function initialize() {
+            populateBranches();
+            // Set default branch details
+            updateBranchDetails(branches[0]);
+        }
+
+        // Add event listener for dropdown
+        branchSelector.addEventListener("change", (event) => {
+            const selectedBranch = branches[event.target.value];
+            updateBranchDetails(selectedBranch);
         });
-    }
 
-    // Update branch details
-    function updateBranchDetails(branch) {
-        branchName.textContent = branch.fullName;
-        branchContact.textContent = branch.contact;
-        branchEmail.textContent = `Email: ${branch.email}`;
-    }
-
-    // Initialize dropdown and details
-    function initialize() {
-        populateBranches();
-        // Set default branch details
-        updateBranchDetails(branches[0]);
-    }
-
-    // Add event listener for dropdown
-    branchSelector.addEventListener("change", (event) => {
-        const selectedBranch = branches[event.target.value];
-        updateBranchDetails(selectedBranch);
-    });
-
-    // Call initialize on page load
-    initialize();
+        // Call initialize on page load
+        initialize();
 </script>
